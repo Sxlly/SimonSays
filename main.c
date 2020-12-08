@@ -6,12 +6,12 @@
 #include "user_input.h"
 #include "data_parser.h"
 #include "commands_ll.h"
+#include "simon.h"
 
 int main(void) {
 	
 	char filename[256];
-	char simon[30];
-	int status, ii;
+	int status;
 
 	printf("Enter File Name: ");
 	scanf("%256s", filename);
@@ -24,16 +24,8 @@ int main(void) {
 
 		data_parse(filename);
 
-		simon[0] = " (       )\n";
-		simon[1] = " (       )\n";
-		simon[2] = " (       )\n";
 
-		for (ii = 0; ii < 5; ii++) {
-
-			printf("%s", simon[ii]);
-		}
-
-
+		simon_gen();
 
 	}
 

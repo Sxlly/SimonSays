@@ -9,12 +9,15 @@ int file_reader(char filename[]) {
 	FILE *fptr;
 
 	if ((fptr = fopen(filename, "r")) == NULL) {
-
+		
+		fclose(fptr);
 		status = 1;
 		return status;
+
 	}
 
-	else {
+	else {	
+		fclose(fptr);
 		return status;
 	}
 
