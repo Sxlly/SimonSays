@@ -3,39 +3,215 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <time.h>
+#include "main.h"
 #include "user_input.h"
 #include "data_parser.h"
-#include "commands_ll.h"
+#include "singleyll.h"
 #include "simon.h"
 
-int main(void) {
-	
-	char filename[256];
-	int status;
 
-	printf("Enter File Name: ");
-	scanf("%256s", filename);
-	
-	status = file_reader(filename);
+/* onboard main method to create a command which is then added to command list */
 
-	if (status == 0) {
-		
-		printf("File Exists!\n");
+com_t make_command() {
 
-		data_parse(filename);
+	com_t new_com;
 
+	printf("Choose a command to add from the following options\n");
+	printf("---------------------------------------------------\n");
+	usleep(100000);
+	printf("Type 1 For Simon Says Right Arm Up\n");
+	usleep(100000);
+	printf("Type 2 For Simon Says Left Arm Up\n");
+	usleep(100000);
+	printf("Type 3 For Simon Says Dance\n");
 
-		simon_gen();
+	scanf("%1d", &new_com.selection);
 
-	}
+	usleep(250000);
 
-	else {
-		printf("File Does Not Exist!\n");
-	}	
-	
+	printf("Command Successfully Added!\n");
 
-	return 0;
+	usleep(250000);
+
+	return new_com;
 }
 
 
+
+int main(void) {
+
+	/* creating command list */
+
+	comlist_t* list = create_comlist();
+
+	int * animation_stack;
+
+	while (1) {
+		
+
+		char filename[256];
+		int status;
+		int choice;
+		int node_index;
+		int ii;
+
+
+
+
+		/* terminal formatted menu */
+		
+		system("clear");
+		
+		printf("                                   ==========================\n");
+		usleep(50000);
+		printf("                                           Options:  \n");
+		usleep(50000);
+		printf("                                      1. Import File\n");
+		usleep(50000);
+		printf("				      2. Give Command\n");
+		usleep(50000);
+		printf("				      3. Delete Command\n");
+		usleep(50000);
+		printf("				      4. Play Simon Says\n");
+		usleep(50000);
+		printf("				      5. Display Command List\n");
+		usleep(50000);
+		printf("				          6. Exit\n");
+		usleep(50000);
+		printf("				   ==========================\n");
+		
+		printf("Your Choice:  ");
+		scanf("%1d", &choice);  
+
+		switch(choice) {
+
+			case 1:
+
+				printf("Enter File Name: ");
+				scanf("%256s", filename);
+				
+				/* passing given file to file reader function which verifies it's existence within home search path (working directory) */
+				status = file_reader(filename);
+
+				if (status == 0) {
+		
+					printf("File Exists!\n");
+
+					data_parse(filename);
+
+					break;
+
+				}	
+
+				else {
+					printf("File Does Not Exist!\n");
+					break;
+				}	
+		
+			case 2:
+				system("clear");
+
+				add_command(list, make_command());
+
+				break;
+
+			case 3:
+
+				system("clear");
+
+				printf("Please Enter the Index of the Command you want to Delete: ");
+				
+				scanf("%1d", &node_index);
+
+				delete_command(list, node_index-1);
+
+				usleep(250000);
+
+				printf("Command Successfully Deleted!\n");
+
+				usleep(250000);
+
+
+				break;
+
+			case 4:
+
+				animation_stack = get_animation_stack(list);
+
+				for (ii = 0; ii < 1; ii++) {
+					
+					usleep(500000);
+					printf("%d", animation_stack[ii]);
+				}
+
+
+				printf("Play Simon Says\n");
+
+				system("clear");
+
+				simon_rightarm_gen();
+
+				usleep(5000000);
+
+				system("clear");
+
+				simon_leftarm_gen();
+
+				usleep(5000000);
+
+				system("clear");
+
+				simon_handonhead_gen();
+
+				break;
+
+			case 5:
+				system("clear");
+
+				printf("Your Current Command List: \n");
+
+				print_comlist(list);
+
+				usleep(250000);
+
+				break;
+
+			case 6:
+				system("clear");
+
+				usleep(500000);
+				printf("Thankyou For Playing!\n");
+				usleep(500000);
+				system("clear");
+				printf("Quiting Game\n");
+				usleep(500000);
+				system("clear");
+				printf("Quiting Game.\n");
+				usleep(500000);
+				system("clear");
+				printf("Quiting Game..\n");
+				usleep(500000);
+				system("clear");
+				printf("Quiting Game...\n");
+				exit(0);
+				break;
+
+			default:
+
+				printf("Invalid Selection!\n");
+				break;
+
+
+
+		}
+	}
+	
+	/*freeing allocated memory for command list */
+	free_comlist(list);
+
+	
+	/* main method standard exit return */
+	return 0;
+}
 
