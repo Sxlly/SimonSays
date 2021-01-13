@@ -45,8 +45,6 @@ int main(void) {
 
 	comlist_t* list = create_comlist();
 
-	int * animation_stack;
-
 	while (1) {
 		
 
@@ -54,9 +52,6 @@ int main(void) {
 		int status;
 		int choice;
 		int node_index;
-		int ii;
-
-
 
 
 		/* terminal formatted menu */
@@ -137,32 +132,7 @@ int main(void) {
 
 			case 4:
 
-				animation_stack = get_animation_stack(list);
-
-				for (ii = 0; ii < 1; ii++) {
-					
-					usleep(500000);
-					printf("%d", animation_stack[ii]);
-				}
-
-
-				printf("Play Simon Says\n");
-
-				system("clear");
-
-				simon_rightarm_gen();
-
-				usleep(5000000);
-
-				system("clear");
-
-				simon_leftarm_gen();
-
-				usleep(5000000);
-
-				system("clear");
-
-				simon_handonhead_gen();
+				commands_to_simon(list);
 
 				break;
 

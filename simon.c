@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include "simon.h"
+#include "singleyll.h"
 
 
 
@@ -273,20 +274,62 @@ void simon_handonhead_gen() {
 	fclose(fptr);
 }
 
+/* function to parse commands from commands linked list to simon animation methods */
+void commands_to_simon(comlist_t* list) {
+	
+	/* declaring variable to count current index value */
+	int index_counter = 0;
 
-void commands_to_simon(char *animation_commands) {
+	comlist_node_t* current;
 
-	int ii;
+	for (current = list->head; current != NULL; current = current->next) {
 
-	for (ii = 0; ii < 10; ii++) {
+		index_counter++;
 
-		printf("%d", animation_commands[ii]);
+		if (current->value.selection == 1) {
+			
+			system("clear");
+
+			simon_rightarm_gen();
+
+			usleep(500000);
+		}
+
+		else if (current->value.selection == 2) {
+
+			system("clear");
+
+			simon_leftarm_gen();
+
+			usleep(500000);
+		}
+
+		else if (current->value.selection == 3) {
+
+			system("clear");
+
+			simon_handonhead_gen();
+
+			usleep(500000);
+		}
+
+		else if (current->value.selection == 4) {
+
+			system("clear");
+
+			simon_handonhead_gen();
+
+			usleep(500000);
+		}
+
+		else {
+			printf("invalid command");
+		}
 
 	}
-
-
-
 }
+
+	
 
 
 

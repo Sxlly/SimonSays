@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "simon.h"
 
 
 /* command list creation method */
@@ -142,7 +143,7 @@ int *get_animation_stack(comlist_t* list) {
 
 	comlist_node_t* current;
 
-	int animation_stack[list->size + 1];
+	int animation_stack[500];
 	int index_counter = 0;
 
 	for(current = list->head; current != NULL; current = current->next) {

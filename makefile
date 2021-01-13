@@ -16,10 +16,10 @@ file_input.o: file_input.c user_input.h
 data_parser.o: data_parser.c data_parser.h
 	$(CC) $(CFLAGS) data_parser.c -c
 
-singleyll.o: singleyll.c singleyll.h
+singleyll.o: singleyll.c singleyll.h simon.h
 	$(CC) $(CFLAGS) singleyll.c -c
 
-simon.o: simon.c simon.h
+simon.o: simon.c simon.h singleyll.h
 	$(CC) $(CFLAGS) simon.c -c
 
 clean: 
