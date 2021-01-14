@@ -18,7 +18,8 @@ com_t make_command() {
 	
 	/* using node struct from singleyll (linked list)  to hold new command */
 	com_t new_com;
-
+	
+	/* print statements to show user options to choose from */
 	printf("Choose a command to add from the following options\n");
 	printf("---------------------------------------------------\n");
 	usleep(100000);
@@ -29,17 +30,34 @@ com_t make_command() {
 	printf("Type 3 For Simon Says Hands On Head\n");
 	usleep(100000);
 	printf("Type 4 For Simon Says Dance\n");
-
+	
+	/* using input scan to obtain selection value from user -> then stored in the new commands selection value */
 	scanf("%1d", &new_com.selection);
-
+	
+	/* print statements to confirm new commands addition to the linked list */
 	usleep(250000);
 
 	printf("Command Successfully Added!\n");
 
 	usleep(250000);
 
+	/* return new command node */
+
 	return new_com;
 }
+
+
+/* method to emulate css type design via centering main menu */
+void terminal_spacer() {
+
+	int ii;
+
+	for (ii = 0; ii < 6; ii++) {
+
+		printf("\n");
+	}
+}
+
 
 
 /* default main method */
@@ -52,14 +70,11 @@ int main(void) {
 	/* main menu infinite while loop -> while not break */
 	while (1) {
 		
-
+		/* functionality variables declared */
 		char filename[256];
 		int status;
 		int choice;
 		int node_index;
-		
-		/* terminal menu formatter index counter */
-		int ii;
 
 
 		/* terminal formatted menu */
@@ -69,11 +84,8 @@ int main(void) {
 		system("clear");
 		
 		
-		/* for loop to space menu from the top of the terminal to a css like centering */
-		for (ii = 0; ii < 6; ii++) {
-
-			printf("\n");
-		}
+		/* using terminal spacer funtion */
+		terminal_spacer();
 		
 
 		/* print statements for main menu */
@@ -97,7 +109,7 @@ int main(void) {
 		printf("				      ===========================\n");
 		
 		/* obtaining choice as an integer from the user via terminal input scan */
-		printf("                                             Your Choice:  ");
+		printf("                                          Your Choice:  ");
 		scanf("%1d", &choice);  
 		
 		/* switch structure which is parsed int choice  */
@@ -105,6 +117,10 @@ int main(void) {
 			
 			/* if case->choice is equal to one */
 			case 1:
+
+				system("clear");
+
+				terminal_spacer();
 
 				printf("Enter File Name: ");
 				scanf("%256s", filename);
@@ -131,6 +147,8 @@ int main(void) {
 			case 2:
 				system("clear");
 
+				terminal_spacer();
+
 				add_command(list, make_command());
 
 				break;
@@ -140,7 +158,9 @@ int main(void) {
 
 				system("clear");
 
-				printf("Please Enter the Index of the Command you want to Delete: ");
+				terminal_spacer();
+
+				printf("\t\t\t Please Enter the Index of the Command you want to Delete: ");
 				
 				scanf("%1d", &node_index);
 
@@ -148,7 +168,7 @@ int main(void) {
 
 				usleep(250000);
 
-				printf("Command Successfully Deleted!\n");
+				printf("\t\t\t Command Successfully Deleted!\n");
 
 				usleep(250000);
 
@@ -166,6 +186,8 @@ int main(void) {
 			case 5:
 				system("clear");
 
+				terminal_spacer();
+
 				printf("Your Current Command List: \n");
 
 				print_comlist(list);
@@ -177,20 +199,26 @@ int main(void) {
 			case 6:
 				system("clear");
 
+				terminal_spacer();
+
 				usleep(500000);
-				printf("Thankyou For Playing!\n");
-				usleep(500000);
-				system("clear");
-				printf("Quiting Game\n");
-				usleep(500000);
-				system("clear");
-				printf("Quiting Game.\n");
+				printf("\t\t\t Thankyou For Playing!\n");
 				usleep(500000);
 				system("clear");
-				printf("Quiting Game..\n");
+				terminal_spacer();
+				printf("\t\t\t Quiting Game\n");
 				usleep(500000);
 				system("clear");
-				printf("Quiting Game...\n");
+				terminal_spacer();
+				printf("\t\t\t Quiting Game.\n");
+				usleep(500000);
+				system("clear");
+				terminal_spacer();
+				printf("\t\t\t Quiting Game..\n");
+				usleep(500000);
+				system("clear");
+				terminal_spacer();
+				printf("\t\t\t Quiting Game...\n");
 				exit(0);
 				break;
 			
