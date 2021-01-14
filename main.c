@@ -13,8 +13,10 @@
 
 /* onboard main method to create a command which is then added to command list */
 
+/* using struct from singleyll (linked list) header file */
 com_t make_command() {
-
+	
+	/* using node struct from singleyll (linked list)  to hold new command */
 	com_t new_com;
 
 	printf("Choose a command to add from the following options\n");
@@ -24,7 +26,9 @@ com_t make_command() {
 	usleep(100000);
 	printf("Type 2 For Simon Says Left Arm Up\n");
 	usleep(100000);
-	printf("Type 3 For Simon Says Dance\n");
+	printf("Type 3 For Simon Says Hands On Head\n");
+	usleep(100000);
+	printf("Type 4 For Simon Says Dance\n");
 
 	scanf("%1d", &new_com.selection);
 
@@ -38,13 +42,14 @@ com_t make_command() {
 }
 
 
-
+/* default main method */
 int main(void) {
 
 	/* creating command list */
 
 	comlist_t* list = create_comlist();
-
+	
+	/* main menu infinite while loop -> while not break */
 	while (1) {
 		
 
@@ -52,35 +57,53 @@ int main(void) {
 		int status;
 		int choice;
 		int node_index;
+		
+		/* terminal menu formatter index counter */
+		int ii;
 
 
 		/* terminal formatted menu */
-		
+
+
+		/* clearing current system terminal content */
 		system("clear");
 		
-		printf("                                   ==========================\n");
-		usleep(50000);
-		printf("                                           Options:  \n");
-		usleep(50000);
-		printf("                                      1. Import File\n");
-		usleep(50000);
-		printf("				      2. Give Command\n");
-		usleep(50000);
-		printf("				      3. Delete Command\n");
-		usleep(50000);
-		printf("				      4. Play Simon Says\n");
-		usleep(50000);
-		printf("				      5. Display Command List\n");
-		usleep(50000);
-		printf("				          6. Exit\n");
-		usleep(50000);
-		printf("				   ==========================\n");
 		
-		printf("Your Choice:  ");
+		/* for loop to space menu from the top of the terminal to a css like centering */
+		for (ii = 0; ii < 6; ii++) {
+
+			printf("\n");
+		}
+		
+
+		/* print statements for main menu */
+		/* using usleep to sleep the processing for aesthetics */
+		printf("                                      ==========================\n");
+		usleep(50000);
+		printf("                                              Options:  \n");
+		usleep(50000);
+		printf("                                         1. Import File\n");
+		usleep(50000);
+		printf("      				         2. Give Command\n");
+		usleep(50000);
+		printf(" 				        3. Delete Command\n");
+		usleep(50000);
+		printf("				        4. Play Simon Says\n");
+		usleep(50000);
+		printf("				       5. Display Command List\n");
+		usleep(50000);
+		printf("				              6. Exit\n");
+		usleep(50000);
+		printf("				      ===========================\n");
+		
+		/* obtaining choice as an integer from the user via terminal input scan */
+		printf("                                             Your Choice:  ");
 		scanf("%1d", &choice);  
-
+		
+		/* switch structure which is parsed int choice  */
 		switch(choice) {
-
+			
+			/* if case->choice is equal to one */
 			case 1:
 
 				printf("Enter File Name: ");
@@ -103,14 +126,16 @@ int main(void) {
 					printf("File Does Not Exist!\n");
 					break;
 				}	
-		
+			
+			/* if case->choice is equal to two */
 			case 2:
 				system("clear");
 
 				add_command(list, make_command());
 
 				break;
-
+			
+			/* if case->choice is equal to three */
 			case 3:
 
 				system("clear");
@@ -129,13 +154,15 @@ int main(void) {
 
 
 				break;
-
+			
+			/* if case->choice is equal to four */
 			case 4:
 
 				commands_to_simon(list);
 
 				break;
-
+			
+			/* if case->choice is equal to five */
 			case 5:
 				system("clear");
 
@@ -146,7 +173,7 @@ int main(void) {
 				usleep(250000);
 
 				break;
-
+			/* if case->choice is equal to six (also exit->contains while loop break->exit(zero)) */
 			case 6:
 				system("clear");
 
@@ -166,7 +193,8 @@ int main(void) {
 				printf("Quiting Game...\n");
 				exit(0);
 				break;
-
+			
+			/* if case->choice is equal to none of above (default) */
 			default:
 
 				printf("Invalid Selection!\n");
@@ -179,7 +207,6 @@ int main(void) {
 	
 	/*freeing allocated memory for command list */
 	free_comlist(list);
-
 	
 	/* main method standard exit return */
 	return 0;
