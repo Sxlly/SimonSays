@@ -1,8 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-
-int main(void);
+void terminal_spacer();
+int main(int argc, char* argv[]);
 
 
 #endif

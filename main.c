@@ -20,18 +20,19 @@ com_t make_command() {
 	com_t new_com;
 	
 	/* print statements to show user options to choose from */
-	printf("Choose a command to add from the following options\n");
-	printf("---------------------------------------------------\n");
+	printf("\t\tChoose a command to add from the following options\n");
+	printf("\t\t---------------------------------------------------\n");
 	usleep(100000);
-	printf("Type 1 For Simon Says Right Arm Up\n");
+	printf("\t\t\tType 1 For Simon Says Right Arm Up\n");
 	usleep(100000);
-	printf("Type 2 For Simon Says Left Arm Up\n");
+	printf("\t\t\tType 2 For Simon Says Left Arm Up\n");
 	usleep(100000);
-	printf("Type 3 For Simon Says Hands On Head\n");
+	printf("\t\t\tType 3 For Simon Says Hands On Head\n");
 	usleep(100000);
-	printf("Type 4 For Simon Says Dance\n");
+	printf("\t\t\tType 4 For Simon Says Dance\n");
 	
 	/* using input scan to obtain selection value from user -> then stored in the new commands selection value */
+	printf("\t\t\tYour Choice: ");
 	scanf("%1d", &new_com.selection);
 	
 	/* print statements to confirm new commands addition to the linked list */
@@ -61,12 +62,53 @@ void terminal_spacer() {
 
 
 /* default main method */
-int main(void) {
+/* with static variables to support command line input */
+int main(int argc, char* argv[]) {
+	
+	int cla;
+	
+	/* if there is no additional command line argument -> set cla to one (False) */
+	if (argc == 1) {
 
-	/* creating command list */
+		cla = 1;
+		printf("%1d", cla);
+	}
+	
+	/* if there is one additional command line argument -> set cla to zero (True) */
+	else if (argc == 2) {
+		
+		/* declaring status variable to act as boolean */
+		int status;
+
+		cla = 0;
+		printf("%1d", cla);
+		
+		/* parse filename into file reader method to verify its existence */
+		status = file_reader(argv[1]);
+		
+		/* if status is equal to zero (True) keep cla as zero (True) */
+		if (status == 0) {
+
+			cla = 0;
+			data_parse(argv[1]);
+		}
+		
+		/* else -> kill switch runtime via return zero */
+		else {
+			return 0;
+		}
+	}
+	
+	/* else -> kill switch runtime via return zero */
+	else {
+		return 0;
+	}
+
+
+	/* creating linked list */
 
 	comlist_t* list = create_comlist();
-	
+
 	/* main menu infinite while loop -> while not break */
 	while (1) {
 		
@@ -188,7 +230,7 @@ int main(void) {
 
 				terminal_spacer();
 
-				printf("Your Current Command List: \n");
+				printf("\t\t\tYour Current Command List: \n");
 
 				print_comlist(list);
 
@@ -225,7 +267,7 @@ int main(void) {
 			/* if case->choice is equal to none of above (default) */
 			default:
 
-				printf("Invalid Selection!\n");
+				printf("\t\t\tInvalid Selection!\n");
 				break;
 
 

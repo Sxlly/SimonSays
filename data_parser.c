@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "data_parser.h"
+#include "singleyll.h"
 
 
 void data_parse(char filename[256]) {
@@ -11,11 +12,13 @@ void data_parse(char filename[256]) {
 
 	char file_line[256];
 	
-	printf("The File You Have Choosen Contains The Following: \n");
+	system("clear");
+
+	printf("\t\t\t The File You Have Choosen Contains The Following: \n");
 
 	while (fgets(file_line, sizeof(file_line), fptr)) {
 
-		printf("%256s", file_line);
+		printf("\t\t\t %256s", file_line);
 	}
 
 	fclose(fptr);

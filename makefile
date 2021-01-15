@@ -13,7 +13,7 @@ main.o: main.c main.h user_input.h data_parser.h singleyll.h simon.h
 file_input.o: file_input.c user_input.h
 	$(CC) $(CFLAGS) file_input.c -c
 
-data_parser.o: data_parser.c data_parser.h
+data_parser.o: data_parser.c data_parser.h singleyll.h
 	$(CC) $(CFLAGS) data_parser.c -c
 
 singleyll.o: singleyll.c singleyll.h simon.h
