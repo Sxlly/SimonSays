@@ -30,6 +30,14 @@ com_t make_command() {
 	printf("\t\t\tType 3 For Simon Says Hands On Head\n");
 	usleep(100000);
 	printf("\t\t\tType 4 For Simon Says Dance\n");
+	usleep(100000);
+	printf("\t\t\tType 5 For Simon Didn't Say Right Arm Up\n");
+	usleep(100000);
+	printf("\t\t\tType 6 For Simon Didn't Say Left Arm Up\n");
+	usleep(100000);
+	printf("\t\t\tType 7 For Simon Didn't Say Hands On Head\n");
+	usleep(100000);
+	printf("\t\t\tType 8 For Simon Didn't Say Dance\n");
 	
 	/* using input scan to obtain selection value from user -> then stored in the new commands selection value */
 	printf("\t\t\tYour Choice: ");
@@ -69,7 +77,11 @@ void add_file_commands(comlist_t* list, char filename[256]) {
 	char simon_s_ra[100] = "simon said right arm up\n";
 	char simon_s_la[100] = "simon said left arm up\n";
 	char simon_s_hoh[100] = "simon said hands on head\n";
-	char simon_s_dan[100] = "simon said dance\n";	
+	char simon_s_dan[100] = "simon said dance\n";
+	char simon_ds_ra[100] = "simon didn't say right arm up\n";
+	char simon_ds_la[100] = "simon didn't say left arm up\n";
+	char simon_ds_hoh[100] = "simon didn't say hands on head\n";
+	char simon_ds_dan[100] = "simon didn't say dance\n";	
 
 	FILE* fptr = fopen(filename, "r");
 
@@ -108,6 +120,26 @@ void add_file_commands(comlist_t* list, char filename[256]) {
 			new_com.selection = 4;
 			add_command(list, new_com);
 			usleep(500000);
+		}
+
+		else if (strcmp(file_line, simon_ds_ra) == 0) {
+
+			printf("\n");
+		}
+
+		else if (strcmp(file_line, simon_ds_la) == 0) {
+
+			printf("\n");
+		}
+
+		else if (strcmp(file_line, simon_ds_hoh) == 0) {
+
+			printf("\n");
+		}
+
+		else if (strcmp(file_line, simon_ds_dan) == 0) {
+
+			printf("\n");
 		}
 
 		else {
@@ -165,6 +197,16 @@ int main(int argc, char* argv[]) {
 	/* else -> kill switch runtime via return zero */
 	/* firstly printing instructions on how to use program */
 	else {
+
+		system("clear");
+		terminal_spacer();
+		terminal_spacer();
+
+		printf("\t\t\tGot Stuck? \n");
+		printf("\t\t\tUser Instructions\n");
+		printf("\t\t\tRun Via Typing ./SimonSays into command line\n");
+		printf("\t\t\tRun With a Initial File Via Typing ./SimonSays filename.type\n");
+		printf("\t\t\tAny Additional commandline arguments given after a filename will result in a runtime error!\n");
 		return 0;
 	}
 
@@ -209,7 +251,7 @@ int main(int argc, char* argv[]) {
 		usleep(50000);
 		printf("      				         2. Give Command\n");
 		usleep(50000);
-		printf(" 				        3. Delete Command\n");
+		printf(" 				    3. Delete Command By Index\n");
 		usleep(50000);
 		printf("				        4. Play Simon Says\n");
 		usleep(50000);
@@ -232,7 +274,7 @@ int main(int argc, char* argv[]) {
 				system("clear");
 				terminal_spacer();
 
-				printf("Enter File Name: ");
+				printf("\t\t\tEnter File Name: ");
 				scanf("%256s", filename);
 				
 				/* passing given file to file reader function which verifies it's existence within home search path (working directory) */
@@ -242,8 +284,12 @@ int main(int argc, char* argv[]) {
 
 					terminal_spacer();
 					printf("\t\t\tFile Exists!\n");
-
+					
+					/* display to user what the file contains via printing to terminal */
 					data_parse(filename);
+					
+					/* add all of these commands to the current command list */
+					add_file_commands(list, filename);
 
 					break;
 
@@ -312,25 +358,26 @@ int main(int argc, char* argv[]) {
 				system("clear");
 
 				terminal_spacer();
+				terminal_spacer();
 
 				usleep(500000);
-				printf("\t\t\t Thankyou For Playing!\n");
+				printf("\t\t\t\t Thankyou For Playing!\n");
 				usleep(500000);
 				system("clear");
 				terminal_spacer();
-				printf("\t\t\t Quiting Game\n");
+				printf("\t\t\t\t Quiting Game\n");
 				usleep(500000);
 				system("clear");
 				terminal_spacer();
-				printf("\t\t\t Quiting Game.\n");
+				printf("\t\t\t\t Quiting Game.\n");
 				usleep(500000);
 				system("clear");
 				terminal_spacer();
-				printf("\t\t\t Quiting Game..\n");
+				printf("\t\t\t\t Quiting Game..\n");
 				usleep(500000);
 				system("clear");
 				terminal_spacer();
-				printf("\t\t\t Quiting Game...\n");
+				printf("\t\t\t\t Quiting Game...\n");
 				exit(0);
 				break;
 			

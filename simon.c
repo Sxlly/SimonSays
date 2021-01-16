@@ -281,6 +281,206 @@ void simon_handonhead_gen() {
 	fclose(fptr);
 }
 
+void simon_dance_gen() {
+
+        FILE *fptr;
+        char str[1000];
+
+
+        fptr = fopen("sframebase.txt", "r");
+
+        terminal_spacer();
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+        fclose(fptr);
+
+        fptr = fopen("sframe3-1.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-2.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-3.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-4.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-5.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-6.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-5.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-4.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-3.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-2.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframe3-1.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframebase.txt", "r");
+
+        terminal_spacer();
+
+        usleep(500000);
+
+        system("clear");
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("%s", str);
+        }
+
+	fclose(fptr);
+
+}
+
+
 /* function to parse commands from commands linked list to simon animation methods */
 void commands_to_simon(comlist_t* list) {
 	
@@ -324,7 +524,7 @@ void commands_to_simon(comlist_t* list) {
 
 			system("clear");
 
-			simon_handonhead_gen();
+			simon_dance_gen();
 
 			usleep(500000);
 		}
