@@ -59,6 +59,68 @@ void terminal_spacer() {
 	}
 }
 
+/* method to add all commands from text file to command list */
+void add_file_commands(comlist_t* list, char filename[256]) {
+	
+	/* declaring a new object of node structure to act as new command */
+	com_t new_com;
+	
+	/* declaring valid command strings */
+	char simon_s_ra[100] = "simon said right arm up\n";
+	char simon_s_la[100] = "simon said left arm up\n";
+	char simon_s_hoh[100] = "simon said hands on head\n";
+	char simon_s_dan[100] = "simon said dance\n";	
+
+	FILE* fptr = fopen(filename, "r");
+
+	char file_line[100];
+
+	while (fgets(file_line, sizeof(file_line), fptr)) {
+		
+		
+		printf("%s", file_line);
+
+		usleep(1000000);
+
+		if (strcmp(file_line, simon_s_ra) == 0) {
+
+			new_com.selection = 1;
+			add_command(list, new_com); 	
+			usleep(500000);
+		}
+
+		else if (strcmp(file_line, simon_s_la) == 0) {
+
+			new_com.selection = 2;
+			add_command(list, new_com);
+			usleep(500000);
+		}
+
+		else if (strcmp(file_line, simon_s_hoh) == 0) {
+
+			new_com.selection = 3;
+			add_command(list, new_com);
+			usleep(500000);
+		}
+
+		else if (strcmp(file_line, simon_s_dan) == 0) {
+
+			new_com.selection = 4;
+			add_command(list, new_com);
+			usleep(500000);
+		}
+
+		else {
+			printf("invalid command!\n");
+			usleep(500000);
+		}
+	}
+
+	fclose(fptr);
+
+}
+
+
 
 
 /* default main method */
@@ -71,7 +133,6 @@ int main(int argc, char* argv[]) {
 	if (argc == 1) {
 
 		cla = 1;
-		printf("%1d", cla);
 	}
 	
 	/* if there is one additional command line argument -> set cla to zero (True) */
@@ -81,7 +142,6 @@ int main(int argc, char* argv[]) {
 		int status;
 
 		cla = 0;
-		printf("%1d", cla);
 		
 		/* parse filename into file reader method to verify its existence */
 		status = file_reader(argv[1]);
@@ -91,15 +151,19 @@ int main(int argc, char* argv[]) {
 
 			cla = 0;
 			data_parse(argv[1]);
+
+			usleep(500000);
 		}
 		
 		/* else -> kill switch runtime via return zero */
-		else {
+		else {	
+			free(argv);
 			return 0;
 		}
 	}
 	
 	/* else -> kill switch runtime via return zero */
+	/* firstly printing instructions on how to use program */
 	else {
 		return 0;
 	}
@@ -108,6 +172,13 @@ int main(int argc, char* argv[]) {
 	/* creating linked list */
 
 	comlist_t* list = create_comlist();
+
+	/* adding commandline argument file commands to list */
+	/* if commandline file was given and verified */
+	if (cla == 0) {
+
+		add_file_commands(list, argv[1]);
+	}
 
 	/* main menu infinite while loop -> while not break */
 	while (1) {
@@ -120,8 +191,6 @@ int main(int argc, char* argv[]) {
 
 
 		/* terminal formatted menu */
-
-
 		/* clearing current system terminal content */
 		system("clear");
 		
@@ -161,7 +230,6 @@ int main(int argc, char* argv[]) {
 			case 1:
 
 				system("clear");
-
 				terminal_spacer();
 
 				printf("Enter File Name: ");
@@ -171,8 +239,9 @@ int main(int argc, char* argv[]) {
 				status = file_reader(filename);
 
 				if (status == 0) {
-		
-					printf("File Exists!\n");
+
+					terminal_spacer();
+					printf("\t\t\tFile Exists!\n");
 
 					data_parse(filename);
 
@@ -181,7 +250,8 @@ int main(int argc, char* argv[]) {
 				}	
 
 				else {
-					printf("File Does Not Exist!\n");
+					terminal_spacer();
+					printf("\t\t\tFile Does Not Exist!\n");
 					break;
 				}	
 			
@@ -214,7 +284,6 @@ int main(int argc, char* argv[]) {
 
 				usleep(250000);
 
-
 				break;
 			
 			/* if case->choice is equal to four */
@@ -237,6 +306,7 @@ int main(int argc, char* argv[]) {
 				usleep(250000);
 
 				break;
+
 			/* if case->choice is equal to six (also exit->contains while loop break->exit(zero)) */
 			case 6:
 				system("clear");

@@ -19,7 +19,7 @@ data_parser.o: data_parser.c data_parser.h singleyll.h
 singleyll.o: singleyll.c singleyll.h simon.h
 	$(CC) $(CFLAGS) singleyll.c -c
 
-simon.o: simon.c simon.h singleyll.h
+simon.o: simon.c simon.h singleyll.h main.h
 	$(CC) $(CFLAGS) simon.c -c
 
 clean: 

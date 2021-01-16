@@ -5,6 +5,7 @@
 #include <time.h>
 #include "simon.h"
 #include "singleyll.h"
+#include "main.h"
 
 
 
@@ -15,6 +16,8 @@ void simon_rightarm_gen() {
 
 
 	fptr = fopen("sframebase.txt", "r");
+	
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
@@ -24,6 +27,8 @@ void simon_rightarm_gen() {
 	fclose(fptr);
 
 	fptr = fopen("sframe3.txt", "r");
+
+	terminal_spacer();
 
 	usleep(500000);
 
@@ -37,6 +42,8 @@ void simon_rightarm_gen() {
 	fclose(fptr);
 	
 	fptr = fopen("sframe2.txt", "r");
+
+	terminal_spacer();
 	
 	usleep(500000);
 

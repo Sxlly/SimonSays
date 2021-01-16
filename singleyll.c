@@ -52,6 +52,13 @@ void print_comlist(comlist_t* list) {
 
 		else if (current->value.selection == 3) {
 
+			printf("Command No %1d = Simon Says Hands On Head\n", index_counter);
+		}
+
+		/* if current node value holds a integer four value stored within selection */
+
+		else if (current->value.selection == 4) {
+
 			printf("Command No %1d = Simon Says Dance\n", index_counter);
 		}
 		
