@@ -529,6 +529,42 @@ void commands_to_simon(comlist_t* list) {
 			usleep(500000);
 		}
 
+		else if (current->value.selection == 5) {
+
+			system("clear");
+
+			printf("run");
+
+			usleep(500000);
+		}
+
+		else if (current->value.selection == 6) {
+
+			system("clear");
+
+			printf("run");
+
+			usleep(500000);
+		}
+
+		else if (current->value.selection == 7) {
+
+			system("clear");
+
+			printf("run");
+
+			usleep(500000);
+		}
+
+		else if (current->value.selection == 8) {
+
+			system("clear");
+
+			printf("run");
+
+			usleep(500000);
+		}
+
 		else {
 			printf("invalid command");
 		}

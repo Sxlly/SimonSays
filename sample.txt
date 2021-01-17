@@ -2,3 +2,6 @@ simon said right arm up
 simon said left arm up
 simon said hands on head
 simon said dance
+simon didn't say dance
+simon didn't say hands on head
+simon didn't say right arm up

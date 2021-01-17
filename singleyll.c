@@ -38,34 +38,62 @@ void print_comlist(comlist_t* list) {
 		/* if current nodes value holds a integer one value stored within selection */
 		if (current->value.selection == 1) {
 
-			printf("Command No %1d = Simon Says Right Arm Up\n", index_counter);
+			printf("\t\t\tCommand No %1d = Simon Says Right Arm Up\n", index_counter);
 		}
 
 		/* if current node value holds a integer two value stored within seleciton */
 
 		else if (current->value.selection == 2) {
 
-			printf("Command No %1d = Simon Says Left Arm Up\n", index_counter);
+			printf("\t\t\tCommand No %1d = Simon Says Left Arm Up\n", index_counter);
 		}
 		
 		/* if current node value holds a integer three value stored within selection */
 
 		else if (current->value.selection == 3) {
 
-			printf("Command No %1d = Simon Says Hands On Head\n", index_counter);
+			printf("\t\t\tCommand No %1d = Simon Says Hands On Head\n", index_counter);
 		}
 
 		/* if current node value holds a integer four value stored within selection */
 
 		else if (current->value.selection == 4) {
 
-			printf("Command No %1d = Simon Says Dance\n", index_counter);
+			printf("\t\t\tCommand No %1d = Simon Says Dance\n", index_counter);
 		}
 		
-		/* if current node value holds a integer that matches none of above values within selection */
+		/* if current node value holds a integer five value stored within selection */	
+
+		else if (current->value.selection == 5) {
+
+			printf("\t\t\tCommand No %1d = Simon Didn't Say Right Arm Up\n", index_counter);
+		}
+
+		/* if current node value holds a integer six value stored within selection */
+
+		else if (current->value.selection == 6) {
+
+			printf("\t\t\tCommand No %1d = Simon Didn't Say Left Arm Up\n", index_counter);
+		}
+
+		/* if current node value holds a integer seven value stored within selection */
+
+		else if (current->value.selection == 7) {
+
+			printf("\t\t\tCommand No %1d = Simon Didn't Say Hands On Head\n", index_counter);
+		}
+
+		/* if current node value holds a integer eight value stored within selection */
+
+		else if (current->value.selection == 8) {
+
+			printf("\t\t\tCommand No %1d = Simon Didn't Say Dance\n", index_counter);
+		}
+		
+		/* else -> command is invalid */
 
 		else {
-			printf("Command No %1d Holds an invalid command\n", index_counter);
+			printf("\t\t\tCommand No %1d Holds an invalid command\n", index_counter);
 		}
 	}
 }
@@ -145,27 +173,30 @@ void delete_command(comlist_t* list, int node_index) {
 
 }
 
-int *get_animation_stack(comlist_t* list) {
+/* function to delete a large amount of commands from the list at once */
+
+void mass_delete_commands(comlist_t* list, int amount) {
 	
+	/* if list is empty dont continue */
+	if (list->size == 0) {
 
-	comlist_node_t* current;
-
-	int animation_stack[500];
-	int index_counter = 0;
-
-	for(current = list->head; current != NULL; current = current->next) {
-
-		animation_stack[index_counter] = current->value.selection;
-
-		index_counter++;
+		printf("Commands List is Empty!\n");
+	
 	}
-
-	return animation_stack;
+	
+	/* declaring variable to keep count of current index */
+	int index_counter = 0;
+	
+	/* looping through incrementing by one until index is of equal value to amount */
+	for (index_counter = 0; index_counter < amount; index_counter++) {
+		
+		/* every iteration deleting the head node from the command list */
+		/* utilizing pre defined function delete command */
+		delete_command(list, 1);
+	}
 
 
 }
-
-
 
 
 

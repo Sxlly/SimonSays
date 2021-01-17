@@ -34,6 +34,7 @@ void print_comlist(comlist_t* list);
 void add_command(comlist_t* list, com_t com);
 void free_comlist(comlist_t* list);
 void delete_command(comlist_t* list, int node_index);
-int *get_animation_stack(comlist_t* list);
- 
+void mass_delete_commands(comlist_t* list, int amount);
+
+
 #endif /* SINGLEYLL_H */

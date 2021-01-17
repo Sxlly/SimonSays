@@ -98,53 +98,52 @@ void add_file_commands(comlist_t* list, char filename[256]) {
 
 			new_com.selection = 1;
 			add_command(list, new_com); 	
-			usleep(500000);
 		}
 
 		else if (strcmp(file_line, simon_s_la) == 0) {
 
 			new_com.selection = 2;
 			add_command(list, new_com);
-			usleep(500000);
 		}
 
 		else if (strcmp(file_line, simon_s_hoh) == 0) {
 
 			new_com.selection = 3;
 			add_command(list, new_com);
-			usleep(500000);
 		}
 
 		else if (strcmp(file_line, simon_s_dan) == 0) {
 
 			new_com.selection = 4;
 			add_command(list, new_com);
-			usleep(500000);
 		}
 
 		else if (strcmp(file_line, simon_ds_ra) == 0) {
 
-			printf("\n");
+			new_com.selection = 5;
+			add_command(list, new_com);
 		}
 
 		else if (strcmp(file_line, simon_ds_la) == 0) {
 
-			printf("\n");
+			new_com.selection = 6;
+			add_command(list, new_com);
 		}
 
 		else if (strcmp(file_line, simon_ds_hoh) == 0) {
 
-			printf("\n");
+			new_com.selection = 7;
+			add_command(list, new_com);
 		}
 
 		else if (strcmp(file_line, simon_ds_dan) == 0) {
 
-			printf("\n");
+			new_com.selection = 8;
+			add_command(list, new_com);
 		}
 
 		else {
 			printf("invalid command!\n");
-			usleep(500000);
 		}
 	}
 
@@ -203,10 +202,15 @@ int main(int argc, char* argv[]) {
 		terminal_spacer();
 
 		printf("\t\t\tGot Stuck? \n");
+		usleep(100000);
 		printf("\t\t\tUser Instructions\n");
+		usleep(100000);
 		printf("\t\t\tRun Via Typing ./SimonSays into command line\n");
+		usleep(100000);
 		printf("\t\t\tRun With a Initial File Via Typing ./SimonSays filename.type\n");
+		usleep(100000);
 		printf("\t\t\tAny Additional commandline arguments given after a filename will result in a runtime error!\n");
+		usleep(100000);
 		return 0;
 	}
 
@@ -222,7 +226,7 @@ int main(int argc, char* argv[]) {
 		add_file_commands(list, argv[1]);
 	}
 
-	/* main menu infinite while loop -> while not break */
+	/* main menu infinite while loop -> while not break -> where break is exit(zero) */
 	while (1) {
 		
 		/* functionality variables declared */
@@ -247,17 +251,19 @@ int main(int argc, char* argv[]) {
 		usleep(50000);
 		printf("                                              Options:  \n");
 		usleep(50000);
-		printf("                                         1. Import File\n");
+		printf("                                    1. Import File Of Commands\n");
 		usleep(50000);
 		printf("      				         2. Give Command\n");
 		usleep(50000);
 		printf(" 				    3. Delete Command By Index\n");
 		usleep(50000);
-		printf("				        4. Play Simon Says\n");
+		printf("                                   4. Delete Commands By Amount\n");
 		usleep(50000);
-		printf("				       5. Display Command List\n");
+		printf("				       5. Play Simon Says\n");
 		usleep(50000);
-		printf("				              6. Exit\n");
+		printf("				    6. Display Command List\n");
+		usleep(50000);
+		printf("				            7. Exit\n");
 		usleep(50000);
 		printf("				      ===========================\n");
 		
@@ -331,16 +337,35 @@ int main(int argc, char* argv[]) {
 				usleep(250000);
 
 				break;
+
+
+			case 4:
+
+				system("clear");
+
+				terminal_spacer();
+
+				printf("\t\t\t Please Enter the Amount of Commands You Want To Delete:  ");
+
+				scanf("%1d", &node_index);
+
+				mass_delete_commands(list, node_index);
+
+				usleep(250000);
+
+				printf("\t\t\t Commands Sucessfully Deleted!\n");
+
+				break;
 			
 			/* if case->choice is equal to four */
-			case 4:
+			case 5:
 
 				commands_to_simon(list);
 
 				break;
 			
 			/* if case->choice is equal to five */
-			case 5:
+			case 6:
 				system("clear");
 
 				terminal_spacer();
@@ -354,7 +379,7 @@ int main(int argc, char* argv[]) {
 				break;
 
 			/* if case->choice is equal to six (also exit->contains while loop break->exit(zero)) */
-			case 6:
+			case 7:
 				system("clear");
 
 				terminal_spacer();
