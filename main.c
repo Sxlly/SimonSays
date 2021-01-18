@@ -88,11 +88,7 @@ void add_file_commands(comlist_t* list, char filename[256]) {
 	char file_line[100];
 
 	while (fgets(file_line, sizeof(file_line), fptr)) {
-		
-		
-		printf("%s", file_line);
-
-		usleep(1000000);
+				
 
 		if (strcmp(file_line, simon_s_ra) == 0) {
 
@@ -159,11 +155,19 @@ void add_file_commands(comlist_t* list, char filename[256]) {
 int main(int argc, char* argv[]) {
 	
 	int cla;
+	int mode;
 	
 	/* if there is no additional command line argument -> set cla to one (False) */
 	if (argc == 1) {
 
 		cla = 1;
+
+		printf("Choose a Mode\n");
+		printf("Type 1 For Normal Mode\n");
+		printf("Type 2 For Everything Mode\n");
+		printf("Your Choice:   ");
+		scanf("%1d", &mode);
+
 	}
 	
 	/* if there is one additional command line argument -> set cla to zero (True) */
@@ -173,6 +177,14 @@ int main(int argc, char* argv[]) {
 		int status;
 
 		cla = 0;
+
+
+		printf("Choose a Mode\n");
+                printf("Type 1 For Normal Mode\n");
+                printf("Type 2 For Everything Mode\n");
+                printf("Your Choice:   ");
+                scanf("%1d", &mode);
+
 		
 		/* parse filename into file reader method to verify its existence */
 		status = file_reader(argv[1]);

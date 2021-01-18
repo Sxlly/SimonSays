@@ -21,37 +21,38 @@ void simon_rightarm_gen() {
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
 
 	fptr = fopen("sframe3.txt", "r");
 
-	terminal_spacer();
-
 	usleep(500000);
 
 	system("clear");
 
+	terminal_spacer();
+
+
 	while (fgets(str, 1000, fptr) != NULL) {
 		
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
 	
 	fptr = fopen("sframe2.txt", "r");
 
-	terminal_spacer();
-	
 	usleep(500000);
 
 	system("clear");
 
+	terminal_spacer();
+
 	while (fgets(str, 1000, fptr) != NULL) {
 		
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 	
 	fclose(fptr);
@@ -62,9 +63,11 @@ void simon_rightarm_gen() {
 
 	system("clear");
 
+	terminal_spacer();
+
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 	
 	fclose(fptr);
@@ -74,10 +77,12 @@ void simon_rightarm_gen() {
 	usleep(500000);
 	
 	system("clear");
+
+	terminal_spacer();
 	
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 	
 	fclose(fptr);
@@ -88,9 +93,11 @@ void simon_rightarm_gen() {
 	
 	system("clear");
 
+	terminal_spacer();
+
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 	
 	fclose(fptr);
@@ -100,10 +107,12 @@ void simon_rightarm_gen() {
 	usleep(500000);
 
 	system("clear");
+
+	terminal_spacer();
 	
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 	
 	fclose(fptr);	
@@ -120,9 +129,11 @@ void simon_leftarm_gen() {
 
 	fptr = fopen("sframebase.txt", "r");
 
+	terminal_spacer();
+
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -130,10 +141,11 @@ void simon_leftarm_gen() {
 	fptr = fopen("sframe1-1.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -141,10 +153,11 @@ void simon_leftarm_gen() {
 	fptr = fopen("sframe1-2.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -152,10 +165,11 @@ void simon_leftarm_gen() {
 	fptr = fopen("sframe1-3.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -163,10 +177,11 @@ void simon_leftarm_gen() {
 	fptr  = fopen("sframe1-2.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 
 	}
 
@@ -175,10 +190,11 @@ void simon_leftarm_gen() {
 	fptr = fopen("sframe1-1.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -186,10 +202,11 @@ void simon_leftarm_gen() {
 	fptr = fopen("sframebase.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -204,10 +221,12 @@ void simon_handonhead_gen() {
 
 
 	fptr = fopen("sframebase.txt", "r");
+	
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -215,10 +234,11 @@ void simon_handonhead_gen() {
 	fptr = fopen("sframe2-1.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -226,10 +246,11 @@ void simon_handonhead_gen() {
 	fptr = fopen("sframe2-2.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -237,10 +258,11 @@ void simon_handonhead_gen() {
 	fptr = fopen("sframe2-3.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 
 	}
 
@@ -249,10 +271,11 @@ void simon_handonhead_gen() {
 	fptr = fopen("sframe2-2.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -260,10 +283,11 @@ void simon_handonhead_gen() {
 	fptr = fopen("sframe2-1.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 
 	}
 
@@ -272,10 +296,11 @@ void simon_handonhead_gen() {
 	fptr = fopen("sframebase.txt", "r");
 	usleep(500000);
 	system("clear");
+	terminal_spacer();
 
 	while (fgets(str, 1000, fptr) != NULL) {
 
-		printf("%s", str);
+		printf("\t\t\t%s", str);
 	}
 
 	fclose(fptr);
@@ -293,187 +318,296 @@ void simon_dance_gen() {
 
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
         fclose(fptr);
 
         fptr = fopen("sframe3-1.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-2.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-3.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-4.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-5.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-6.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-5.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-4.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-3.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-2.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframe3-1.txt", "r");
 
-        terminal_spacer();
-
         usleep(500000);
 
         system("clear");
 
+	terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
 
         fptr = fopen("sframebase.txt", "r");
 
+        usleep(500000);
+
+        system("clear");
+
+	terminal_spacer();
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("\t\t\t%s", str);
+        }
+
+	fclose(fptr);
+
+}
+
+void simon_ds_gen() {
+
+	FILE *fptr;
+	char str[1000];
+
+
+        fptr = fopen("sframebase.txt", "r");
+
         terminal_spacer();
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("\t\t\t%s", str);
+        }
+
+	fclose(fptr);
+
+	fptr = fopen("sdsframe1.txt", "r");
+
+	usleep(500000);
+
+	system("clear");
+
+	terminal_spacer();
+
+	while (fgets(str, 1000, fptr) != NULL) {
+
+		printf("\t\t\t%s", str);
+	}
+
+	fclose(fptr);
+
+        fptr = fopen("sdsframe2.txt", "r");
 
         usleep(500000);
 
         system("clear");
 
+        terminal_spacer();
+
         while (fgets(str, 1000, fptr) != NULL) {
 
-                printf("%s", str);
+                printf("\t\t\t%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sdsframe3.txt", "r");
+
+        usleep(500000);
+
+        system("clear");
+
+        terminal_spacer();
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("\t\t\t%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sdsframe2.txt", "r");
+
+        usleep(500000);
+
+        system("clear");
+
+        terminal_spacer();
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("\t\t\t%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sdsframe1.txt", "r");
+
+        usleep(500000);
+
+        system("clear");
+
+        terminal_spacer();
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("\t\t\t%s", str);
+        }
+
+	fclose(fptr);
+
+        fptr = fopen("sframebase.txt", "r");
+
+        usleep(500000);
+
+        system("clear");
+
+        terminal_spacer();
+
+        while (fgets(str, 1000, fptr) != NULL) {
+
+                printf("\t\t\t%s", str);
         }
 
 	fclose(fptr);
@@ -529,44 +663,12 @@ void commands_to_simon(comlist_t* list) {
 			usleep(500000);
 		}
 
-		else if (current->value.selection == 5) {
-
-			system("clear");
-
-			printf("run");
-
-			usleep(500000);
-		}
-
-		else if (current->value.selection == 6) {
-
-			system("clear");
-
-			printf("run");
-
-			usleep(500000);
-		}
-
-		else if (current->value.selection == 7) {
-
-			system("clear");
-
-			printf("run");
-
-			usleep(500000);
-		}
-
-		else if (current->value.selection == 8) {
-
-			system("clear");
-
-			printf("run");
-
-			usleep(500000);
-		}
-
 		else {
-			printf("invalid command");
+			system("clear");
+
+			simon_ds_gen();
+
+			usleep(500000);
 		}
 
 	}

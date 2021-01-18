@@ -14,11 +14,12 @@ void data_parse(char filename[256]) {
 	
 	system("clear");
 
-	printf("\t\t\t The File You Have Choosen Contains The Following: \n");
+	printf("\t\t\tThe File You Have Choosen Contains The Following: \n");
 
 	while (fgets(file_line, sizeof(file_line), fptr)) {
 
-		printf("\t\t\t %256s", file_line);
+		printf("%256s", file_line);
+		usleep(100000);
 	}
 
 	fclose(fptr);
